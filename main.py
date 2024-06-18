@@ -31,12 +31,12 @@ def main():
 
 # Executes git commands
 def main2():
-    for i in range(1): # change number of times to commit here
-        msg = f"git commit -m \"{i + 2}. commit\""  # commit message here
+    for i in range(10): # change number of times to commit here
+        msg = f"git commit -m \"{i + 3}. commit\""  # commit message here
         branch = "main"  # branch name here
         command("git add .")
         command(msg)
-        command("git push origin main")
+        command("git push origin " + branch)
 
 if __name__ == "__main__":
     main()
