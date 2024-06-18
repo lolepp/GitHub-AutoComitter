@@ -25,14 +25,15 @@ def printer(filename):
         file.write(random_letter + '\n')
 
 # Adds random letter to text file
-def main():
+def submain():
     filename = 'text.txt' # filename here
     printer(filename)
 
 # Executes git commands
-def main2():
+def main():
     for i in range(10): # change number of times to commit here
-        msg = f"git commit -m \"{i + 3}. commit\""  # commit message here
+        submain()
+        msg = f"git commit -m \"{i + 4}. commit\""  # commit message here
         branch = "main"  # branch name here
         command("git add .")
         command(msg)
@@ -40,4 +41,3 @@ def main2():
 
 if __name__ == "__main__":
     main()
-    main2()
