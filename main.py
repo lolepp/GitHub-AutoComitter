@@ -31,13 +31,15 @@ def submain():
 
 # Executes git commands
 def main():
+    output = command(["git", "rev-list", "--count", "HEAD"])
+    output = int(output) if output is not None else 0
     for i in range(10): # change number of times to commit here
         submain()
-        msg = f"git commit -m \"{i + 4}. commit\""  # commit message here
+        msg = f"git commit -m \"{i + output}. commit\""  # commit message here
         branch = "main"  # branch name here
         command("git add .")
         command(msg)
-        command("git push origin " + branch)
+    command("git push origin " + branch)
 
 if __name__ == "__main__":
     main()
