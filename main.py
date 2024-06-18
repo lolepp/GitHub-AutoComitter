@@ -9,14 +9,9 @@ def command(command):
     try:
         result = subprocess.run(command, check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
         print(result.stdout)
+        return result.stdout.strip()
     except subprocess.CalledProcessError as e:
         print(f"Error executing command: {e}\n{e.stderr}")
-
-# def git_commit(message):
-#     run_git_command(["git", "commit", "-m", message])
-
-# def git_push(branch):
-#     run_git_command(["git", "push", "origin", branch])
 
 def printer(filename):
     random_letter = random.choice(string.ascii_letters)  # ascii_letters is lowercase and uppercase
@@ -29,13 +24,18 @@ def submain():
     filename = 'text.txt' # filename here
     printer(filename)
 
+def commit_counter():
+    output = command(["git", "rev-list", "--count", "HEAD"])
+    return int(output) if output is not None else 0
+
 # Executes git commands
 def main():
-    output = command(["git", "rev-list", "--count", "HEAD"])
-    output = int(output) if output is not None else 0
-    for i in range(10): # change number of times to commit here
+    amount = 3 # Enter here how many committs you want 
+    counter = commit_counter()
+    for i in range(amount): # change number of times to commit here
+        i += 1
         submain()
-        msg = f"git commit -m \"{i + output}. commit\""  # commit message here
+        msg = f"git commit -m \"{i + counter}. commit\""  # commit message here
         branch = "main"  # branch name here
         command("git add .")
         command(msg)
@@ -43,3 +43,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+    
