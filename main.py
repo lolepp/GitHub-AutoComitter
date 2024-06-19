@@ -30,8 +30,8 @@ def commit_counter():
 
 # Executes git commands
 def main():
-    # With 43 more committs, my repo has 69 committs. This is important!
-    amount = 43 # Enter here how many committs you want
+    # funny number
+    amount = 69 # Enter here how many committs you want
     counter = commit_counter()
     for i in range(amount): # change number of times to commit here
         i += 1
