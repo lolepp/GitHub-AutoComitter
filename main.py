@@ -25,7 +25,8 @@ def commit_counter():
 
 # Executes git commands
 def main():
-    amount = 278 # Enter here how many committs you want
+    # funny number
+    amount = 69 # Enter here how many committs you want
     counter = commit_counter()
     filename = 'text.txt' # filename here
     for i in range(amount): # change number of times to commit here
