@@ -19,11 +19,6 @@ def printer(filename):
     with open(filename, 'a') as file:
         file.write(random_letter + '\n')
 
-# Adds random letter to text file
-def submain():
-    filename = 'text.txt' # filename here
-    printer(filename)
-
 def commit_counter():
     output = command(["git", "rev-list", "--count", "HEAD"])
     return int(output) if output is not None else 0
@@ -33,9 +28,10 @@ def main():
     # funny number
     amount = 69 # Enter here how many committs you want
     counter = commit_counter()
+    filename = 'text.txt' # filename here
     for i in range(amount): # change number of times to commit here
         i += 1
-        submain()
+        printer(filename) # printer adds random letter to file so there is something to add and commit
         msg = f"git commit -m \"{i + counter}. commit\""  # commit message here
         branch = "main"  # branch name here
         command("git add .")
