@@ -25,7 +25,8 @@ def commit_counter(): # Gets the number of committs in this project
 
 def main(): # Executes git commands and the printer
     counter = commit_counter() # get the number of committs in this project
-    amount = 68 # Enter here how many committs you want
+    # funny number
+    amount = 69 # Enter here how many committs you want
     filename = 'text.txt' # filename here
     for i in range(amount): # change number of times to commit here
         branch = "main"  # branch name here
